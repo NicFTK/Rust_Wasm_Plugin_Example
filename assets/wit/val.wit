@@ -1,0 +1,42 @@
+package local:val@1.0.0;
+
+interface types{
+
+    
+    record decimal {
+        prec: u32,
+        scale: s32,
+        value: string,
+    }
+    
+
+    
+    record time {
+        nanoseconds-since-midnight: s64
+    }
+    
+    variant val {
+        null,
+        blob(list<u8>),
+        boolen(bool),
+        str(string),
+        float(f64),
+        int(s64),
+        decimal(decimal),
+        date(s32),
+        datetime(s64),
+        time(s64),
+        error(string),
+    }
+
+
+    get-map: func() -> list<tuple<string, val>>;
+}
+
+
+
+world val {
+     use types.{val};
+     export  types;
+
+}

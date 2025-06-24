@@ -1,0 +1,19 @@
+[workspace]
+members = [  "crates/host", "crates/plugin", "crates/val"]
+resolver = "3"
+
+# This will create smaller Wasm files
+[profile.release]
+strip = "debuginfo"
+lto = true
+
+
+
+[workspace.dependencies]
+
+
+val ={ path = "./crates/val"}
+wasmtime = "32.0.0"
+wit-bindgen = "0.42.0"
+wasmtime-wasi = "32.0.0"
+anyhow = "1.0.97"
